@@ -42,9 +42,17 @@ Local Development Setup
         flask run
 
 Database setup
-With Postgres running, create a postgres_deployment_capstone_ankita database.
-Populate the database using the agency.psql file provided. In terminal run:
-psql postgres_deployment_capstone_ankita < agency.psql
+    With Postgres running, create a postgres_deployment_capstone_ankita database.
+    Populate the database using the agency.psql file provided. In terminal run:
+        psql postgres_deployment_capstone_ankita < agency.psql
+
+Run the Server
+    From within the ./src directory first ensure you are working using your created virtual environment.
+
+    To run the server, execute:
+
+        chmod +x setup.sh
+        source setup.sh
 
 Running the API
     API endpoints can be accessed via https://render-deployment-capstone-ankita.onrender.com
