@@ -10,5 +10,5 @@ DEBUG = True
 
 
 # TODO IMPLEMENT DATABASE URL
-SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:1234@localhost:5432/capstone_agency'
+SQLALCHEMY_DATABASE_URI = 'postgresql://postgres_deployment_capstone_ankita_user:u68XDYDJhI3FxlCGiWz2MMhFR9YEU1dO@dpg-che17abhp8ubgo1m13jg-a.oregon-postgres.render.com/postgres_deployment_capstone_ankita'
 SQLALCHEMY_TRACK_MODIFICATIONS = False

@@ -1,1 +1,1 @@
-DATABASE_URL='postgresql://postgres:1234@localhost:5432/capstone_agency'
+DATABASE_URL='postgresql://postgres_deployment_capstone_ankita_user:u68XDYDJhI3FxlCGiWz2MMhFR9YEU1dO@dpg-che17abhp8ubgo1m13jg-a.oregon-postgres.render.com/postgres_deployment_capstone_ankita'
