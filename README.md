@@ -41,6 +41,11 @@ Local Development Setup
         export FLASK_ENV=development # enables debug mode
         flask run
 
+Database setup
+With Postgres running, create a postgres_deployment_capstone_ankita database.
+Populate the database using the agency.psql file provided. In terminal run:
+psql postgres_deployment_capstone_ankita < agency.psql
+
 Running the API
     API endpoints can be accessed via https://render-deployment-capstone-ankita.onrender.com
 

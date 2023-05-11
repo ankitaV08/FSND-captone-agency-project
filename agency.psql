@@ -1,0 +1,91 @@
+-- Table: public.actors
+
+-- DROP TABLE IF EXISTS public.actors;
+
+CREATE TABLE IF NOT EXISTS public.actors
+(
+    id integer NOT NULL DEFAULT nextval('actors_id_seq'::regclass),
+    name character varying COLLATE pg_catalog."default",
+    age character varying COLLATE pg_catalog."default",
+    gender character varying COLLATE pg_catalog."default",
+    CONSTRAINT actors_pkey PRIMARY KEY (id)
+)
+
+
+ALTER TABLE IF EXISTS public.actors
+    OWNER to postgres_deployment_capstone_ankita_user;
+
+-- Constraint: actors_pkey
+
+-- ALTER TABLE IF EXISTS public.actors DROP CONSTRAINT IF EXISTS actors_pkey;
+
+ALTER TABLE IF EXISTS public.actors
+    ADD CONSTRAINT actors_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: actors_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres_deployment_capstone_ankita_user
+--
+
+CREATE SEQUENCE IF NOT EXISTS public.actors_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.actors_id_seq OWNER TO postgres_deployment_capstone_ankita_user;
+
+--
+-- Name: actors_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres_deployment_capstone_ankita_user
+--
+
+ALTER SEQUENCE public.actors_id_seq OWNED BY public.actors.id;
+
+
+-- Table: public.movies
+
+-- DROP TABLE IF EXISTS public.movies;
+
+CREATE TABLE IF NOT EXISTS public.movies
+(
+    id integer NOT NULL DEFAULT nextval('movies_id_seq'::regclass),
+    title character varying COLLATE pg_catalog."default",
+    release character varying COLLATE pg_catalog."default",
+    CONSTRAINT movies_pkey PRIMARY KEY (id)
+)
+
+ALTER TABLE IF EXISTS public.movies
+    OWNER to postgres_deployment_capstone_ankita_user;
+
+-- Constraint: movies_pkey
+
+-- ALTER TABLE IF EXISTS public.movies DROP CONSTRAINT IF EXISTS movies_pkey;
+
+ALTER TABLE IF EXISTS public.movies
+    ADD CONSTRAINT movies_pkey PRIMARY KEY (id);
+
+-- SEQUENCE: public.movies_id_seq
+
+-- DROP SEQUENCE IF EXISTS public.movies_id_seq;
+
+CREATE SEQUENCE IF NOT EXISTS public.movies_id_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1
+    OWNED BY movies.id;
+
+ALTER TABLE public.movies_id_seq OWNER TO postgres_deployment_capstone_ankita_user;
+
+--
+-- Name: movies_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres_deployment_capstone_ankita_user
+--
+
+ALTER SEQUENCE public.movies_id_seq OWNED BY public.movies.id;
+
+
+
