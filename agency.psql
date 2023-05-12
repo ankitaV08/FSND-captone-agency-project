@@ -5,9 +5,9 @@
 CREATE TABLE IF NOT EXISTS public.actors
 (
     id integer NOT NULL DEFAULT nextval('actors_id_seq'::regclass),
-    name character varying COLLATE pg_catalog."default",
-    age character varying COLLATE pg_catalog."default",
-    gender character varying COLLATE pg_catalog."default",
+    name text varying COLLATE pg_catalog."default",
+    age text varying COLLATE pg_catalog."default",
+    gender text varying COLLATE pg_catalog."default",
     CONSTRAINT actors_pkey PRIMARY KEY (id)
 )
 
@@ -52,8 +52,8 @@ ALTER SEQUENCE public.actors_id_seq OWNED BY public.actors.id;
 CREATE TABLE IF NOT EXISTS public.movies
 (
     id integer NOT NULL DEFAULT nextval('movies_id_seq'::regclass),
-    title character varying COLLATE pg_catalog."default",
-    release character varying COLLATE pg_catalog."default",
+    title text varying COLLATE pg_catalog."default",
+    release text varying COLLATE pg_catalog."default",
     CONSTRAINT movies_pkey PRIMARY KEY (id)
 )
 
@@ -86,6 +86,9 @@ ALTER TABLE public.movies_id_seq OWNER TO postgres_deployment_capstone_ankita_us
 --
 
 ALTER SEQUENCE public.movies_id_seq OWNED BY public.movies.id;
+
+ALTER TABLE ONLY public.actors ALTER COLUMN id SET DEFAULT nextval('public.actors_id_seq'::regclass);
+ALTER TABLE ONLY public.movies ALTER COLUMN id SET DEFAULT nextval('public.movies_id_seq'::regclass);
 
 
 

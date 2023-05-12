@@ -28,6 +28,10 @@ def create_app(test_config=None):
   # Endpoints
   #----------------------------------------------------------------------------#
 
+  @app.route('/')
+  def get_greeting():
+        return "Hi! Welcome to Casting Agency"
+
   # GET request to fetch list of all movies
   @app.route('/movies', methods=['GET'])
   def get_movies():
@@ -70,6 +74,7 @@ def create_app(test_config=None):
       print(actor)
       actor.insert()
     except Exception:
+      print(Exception)
       abort(400)
     return jsonify({
       'success': True, 

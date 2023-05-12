@@ -1,0 +1,369 @@
+{
+	"info": {
+		"_postman_id": "c30250a6-1595-46fe-9a40-65cc6528c49f",
+		"name": "udacity-capstone-render",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "actor",
+			"item": [
+				{
+					"name": "https://render-deployment-capstone-ankita.onrender.com/add-actor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjZxUjQtclBmdEEwUkhFNEpyLWNKeCJ9.eyJpc3MiOiJodHRwczovL2F2LWZzbmQudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDY0MTBjYTM3YTQ3MmZlNjI2NWU1NWNjNyIsImF1ZCI6ImNhcHN0b25lIiwiaWF0IjoxNjgzODM1NDY4LCJleHAiOjE2ODM4OTE0NjgsImF6cCI6Im1GeDNoZjltalRkZnhuNmZhVTBCSk9rTWJxUkdqdUdhIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphZGQtYWN0b3IiLCJwb3N0OmFkZC1tb3ZpZSJdfQ.Ith6bB9pqzCepf8DOhscYTtluUpMbYBu6cg2Ey3-N_MPxjU_umxnQODVDYmZeneQeFd3-vpGSpJQdLjsPIAZ1VrCwKbH7_uWzncgpG0s_VQMAb-g4ETQTzAtoHMWbCcmaLUr2iShH4Ari0rKVSF4u1jXcW6SGJOz2qbIxlEsPXB_ToJI3i5_IcB4oYE_vY1Rakn6r30airNbOCuRRe-Mz2-tveQroxjSmqN4M8udhHS7HTEWV6RKjPMLfYcsOsYb-HN3jloOhY3UVtfotszEWjlhwhrxJDQQTNKli0xdRPYgcvh8fz01iX2rUpM3uuKIfIKZYvt_VFV9LmCRsyVDoQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Deepika Padukone\",\r\n    \"age\":\"39\",\r\n    \"gender\":\"female\"\r\n}"
+						},
+						"url": {
+							"raw": "https://render-deployment-capstone-ankita.onrender.com/add-actor",
+							"protocol": "https",
+							"host": [
+								"render-deployment-capstone-ankita",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"add-actor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://render-deployment-capstone-ankita.onrender.com/actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains actors array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.actors).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://render-deployment-capstone-ankita.onrender.com/actors",
+							"protocol": "https",
+							"host": [
+								"render-deployment-capstone-ankita",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://render-deployment-capstone-ankita.onrender.com/actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401 since credentials are not provided\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://render-deployment-capstone-ankita.onrender.com/actors/2",
+							"protocol": "https",
+							"host": [
+								"render-deployment-capstone-ankita",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"actors",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://render-deployment-capstone-ankita.onrender.com/actors/1",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjZxUjQtclBmdEEwUkhFNEpyLWNKeCJ9.eyJpc3MiOiJodHRwczovL2F2LWZzbmQudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDY0MTBjYTM3YTQ3MmZlNjI2NWU1NWNjNyIsImF1ZCI6ImNhcHN0b25lIiwiaWF0IjoxNjgzODY0OTgxLCJleHAiOjE2ODM5MjA5ODEsImF6cCI6Im1GeDNoZjltalRkZnhuNmZhVTBCSk9rTWJxUkdqdUdhIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphZGQtYWN0b3IiLCJwb3N0OmFkZC1tb3ZpZSJdfQ.tCoyvOhado1ewmkinKpqrrkg3lMgQh3L5lFio0q5D97zmvhbpuOPviAt_-NwoFNRW-bncyrC-hKucr8bMiDVs9j9RZWtY_z-KgH8ucC-K0d9IZCewoGXJgB09j-BF8JoTc4ULKlYpxmmHEpwsImxwoVtFL2bSL5n5cV3uEJyI_kKiyDgr_tI2z8f0YSshXgcTk24g1lYdDH5KtYxf15bAgKeotXE5pCzi8Iji25gs3V9seBuJmmn9GPb6cHmpn4AOaJGvDSZdV4uvCygB18zGCQAQyIWMfr_tQAXWfIiG7qPofozAjCwY3A5LHTmUlaS1S0W2MEk1UKloEy9q2PxIw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Blake Lively\",\r\n    \"age\":\"38\",\r\n    \"gender\":\"female\"\r\n}"
+						},
+						"url": {
+							"raw": "https://render-deployment-capstone-ankita.onrender.com/actors/1",
+							"protocol": "https",
+							"host": [
+								"render-deployment-capstone-ankita",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"actors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://render-deployment-capstone-ankita.onrender.com/actors/2",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjZxUjQtclBmdEEwUkhFNEpyLWNKeCJ9.eyJpc3MiOiJodHRwczovL2F2LWZzbmQudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDY0MTBjYTM3YTQ3MmZlNjI2NWU1NWNjNyIsImF1ZCI6ImNhcHN0b25lIiwiaWF0IjoxNjgzODY0OTgxLCJleHAiOjE2ODM5MjA5ODEsImF6cCI6Im1GeDNoZjltalRkZnhuNmZhVTBCSk9rTWJxUkdqdUdhIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphZGQtYWN0b3IiLCJwb3N0OmFkZC1tb3ZpZSJdfQ.tCoyvOhado1ewmkinKpqrrkg3lMgQh3L5lFio0q5D97zmvhbpuOPviAt_-NwoFNRW-bncyrC-hKucr8bMiDVs9j9RZWtY_z-KgH8ucC-K0d9IZCewoGXJgB09j-BF8JoTc4ULKlYpxmmHEpwsImxwoVtFL2bSL5n5cV3uEJyI_kKiyDgr_tI2z8f0YSshXgcTk24g1lYdDH5KtYxf15bAgKeotXE5pCzi8Iji25gs3V9seBuJmmn9GPb6cHmpn4AOaJGvDSZdV4uvCygB18zGCQAQyIWMfr_tQAXWfIiG7qPofozAjCwY3A5LHTmUlaS1S0W2MEk1UKloEy9q2PxIw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://render-deployment-capstone-ankita.onrender.com/actors/2",
+							"protocol": "https",
+							"host": [
+								"render-deployment-capstone-ankita",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"actors",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "movie",
+			"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains movies array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.movies).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+					}
+				}
+			],
+			"item": [
+				{
+					"name": "https://render-deployment-capstone-ankita.onrender.com/movies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://render-deployment-capstone-ankita.onrender.com/movies",
+							"protocol": "https",
+							"host": [
+								"render-deployment-capstone-ankita",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://render-deployment-capstone-ankita.onrender.com/add-movie",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjZxUjQtclBmdEEwUkhFNEpyLWNKeCJ9.eyJpc3MiOiJodHRwczovL2F2LWZzbmQudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDY0MTBjYTM3YTQ3MmZlNjI2NWU1NWNjNyIsImF1ZCI6ImNhcHN0b25lIiwiaWF0IjoxNjgzODM1NDY4LCJleHAiOjE2ODM4OTE0NjgsImF6cCI6Im1GeDNoZjltalRkZnhuNmZhVTBCSk9rTWJxUkdqdUdhIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphZGQtYWN0b3IiLCJwb3N0OmFkZC1tb3ZpZSJdfQ.Ith6bB9pqzCepf8DOhscYTtluUpMbYBu6cg2Ey3-N_MPxjU_umxnQODVDYmZeneQeFd3-vpGSpJQdLjsPIAZ1VrCwKbH7_uWzncgpG0s_VQMAb-g4ETQTzAtoHMWbCcmaLUr2iShH4Ari0rKVSF4u1jXcW6SGJOz2qbIxlEsPXB_ToJI3i5_IcB4oYE_vY1Rakn6r30airNbOCuRRe-Mz2-tveQroxjSmqN4M8udhHS7HTEWV6RKjPMLfYcsOsYb-HN3jloOhY3UVtfotszEWjlhwhrxJDQQTNKli0xdRPYgcvh8fz01iX2rUpM3uuKIfIKZYvt_VFV9LmCRsyVDoQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Bullet Train\",\r\n    \"release\":\"18-08-2022\"\r\n}"
+						},
+						"url": {
+							"raw": "https://render-deployment-capstone-ankita.onrender.com/add-movie",
+							"protocol": "https",
+							"host": [
+								"render-deployment-capstone-ankita",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"add-movie"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://render-deployment-capstone-ankita.onrender.com/movies/1",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjZxUjQtclBmdEEwUkhFNEpyLWNKeCJ9.eyJpc3MiOiJodHRwczovL2F2LWZzbmQudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDY0MTBjYTM3YTQ3MmZlNjI2NWU1NWNjNyIsImF1ZCI6ImNhcHN0b25lIiwiaWF0IjoxNjgzODY0OTgxLCJleHAiOjE2ODM5MjA5ODEsImF6cCI6Im1GeDNoZjltalRkZnhuNmZhVTBCSk9rTWJxUkdqdUdhIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphZGQtYWN0b3IiLCJwb3N0OmFkZC1tb3ZpZSJdfQ.tCoyvOhado1ewmkinKpqrrkg3lMgQh3L5lFio0q5D97zmvhbpuOPviAt_-NwoFNRW-bncyrC-hKucr8bMiDVs9j9RZWtY_z-KgH8ucC-K0d9IZCewoGXJgB09j-BF8JoTc4ULKlYpxmmHEpwsImxwoVtFL2bSL5n5cV3uEJyI_kKiyDgr_tI2z8f0YSshXgcTk24g1lYdDH5KtYxf15bAgKeotXE5pCzi8Iji25gs3V9seBuJmmn9GPb6cHmpn4AOaJGvDSZdV4uvCygB18zGCQAQyIWMfr_tQAXWfIiG7qPofozAjCwY3A5LHTmUlaS1S0W2MEk1UKloEy9q2PxIw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Red\",\r\n    \"release\":\"17-10-2022\"\r\n}"
+						},
+						"url": {
+							"raw": "https://render-deployment-capstone-ankita.onrender.com/movies/1",
+							"protocol": "https",
+							"host": [
+								"render-deployment-capstone-ankita",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"movies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://render-deployment-capstone-ankita.onrender.com/movies/1",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjZxUjQtclBmdEEwUkhFNEpyLWNKeCJ9.eyJpc3MiOiJodHRwczovL2F2LWZzbmQudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDY0MTBjYTM3YTQ3MmZlNjI2NWU1NWNjNyIsImF1ZCI6ImNhcHN0b25lIiwiaWF0IjoxNjgzODY0OTgxLCJleHAiOjE2ODM5MjA5ODEsImF6cCI6Im1GeDNoZjltalRkZnhuNmZhVTBCSk9rTWJxUkdqdUdhIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphZGQtYWN0b3IiLCJwb3N0OmFkZC1tb3ZpZSJdfQ.tCoyvOhado1ewmkinKpqrrkg3lMgQh3L5lFio0q5D97zmvhbpuOPviAt_-NwoFNRW-bncyrC-hKucr8bMiDVs9j9RZWtY_z-KgH8ucC-K0d9IZCewoGXJgB09j-BF8JoTc4ULKlYpxmmHEpwsImxwoVtFL2bSL5n5cV3uEJyI_kKiyDgr_tI2z8f0YSshXgcTk24g1lYdDH5KtYxf15bAgKeotXE5pCzi8Iji25gs3V9seBuJmmn9GPb6cHmpn4AOaJGvDSZdV4uvCygB18zGCQAQyIWMfr_tQAXWfIiG7qPofozAjCwY3A5LHTmUlaS1S0W2MEk1UKloEy9q2PxIw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://render-deployment-capstone-ankita.onrender.com/movies/1",
+							"protocol": "https",
+							"host": [
+								"render-deployment-capstone-ankita",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"movies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
